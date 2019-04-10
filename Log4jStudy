@@ -1,1 +1,63 @@
+log4j is a reliable, fast and flexible logging framework (APIs) written in Java, which is distributed under the Apache Software License.
 
+log4j has been ported to the C, C++, C#, Perl, Python, Ruby, and Eiffel languages.
+
+log4j is highly configurable through external configuration files at runtime. It views the logging process in terms of levels of priorities and offers mechanisms to direct logging information to a great variety of destinations, such as a database, file, console, UNIX Syslog, etc.
+
+log4j has three main components:
+
+  1)loggers: Responsible for capturing logging information.
+
+  2)appenders: Responsible for publishing logging information to various preferred destinations.
+
+  3)layouts: Responsible for formatting logging information in different styles.
+
+log4j Features
+  -It is thread-safe.
+
+  -It is optimized for speed.
+
+  -It supports multiple output appenders per logger.
+
+  -It supports internationalization.
+
+  -Logging behavior can be set at runtime using a configuration file.
+
+  -It is designed to handle Java Exceptions from the start.
+
+  -It uses multiple levels, namely ALL, TRACE, DEBUG, INFO, WARN, ERROR and FATAL.
+
+  -The format of the log output can be easily changed by extending the Layout class.
+  
+  Minimum Code
+  
+        var log4jPropertiesFilePath= properties.getProperty("log4j.propetiesFile.path") //path of prperties file
+
+        PropertyConfigurator.configure(log4jPropertiesFilePath) // setting path
+
+        var logger = Logger.getLogger(testEngine.getClass) //logger object
+        
+        
+Hierarchy
+ ALL < DEBUG < INFO < WARN < ERROR < FATAL < OFF.
+
+        logger.debug("Hello this is a debug message") //log message
+        logger.info("Hello this is an info message") //log message
+        
+Basic file properties
+    # Root logger option
+    log4j.rootLogger=INFO, file, stdout
+    # configuration to print into file
+    log4j.appender.file=org.apache.log4j.RollingFileAppender
+    log4j.appender.file.File=D:\\logging.log
+    log4j.appender.file.MaxFileSize=1MB
+    log4j.appender.file.MaxBackupIndex=10
+    log4j.appender.file.layout=org.apache.log4j.PatternLayout
+    log4j.appender.file.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+    # configuration to print on console
+    log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+    log4j.appender.stdout.Target=System.out
+    log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+    log4j.appender.stdout.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1}:%L - %m%n
+    
+    
