@@ -1,0 +1,66 @@
+Sqoop Learnings
+
+1) List Databases(To check connectivity)
+sqoop list-databases \
+--connect jdbc:mysql://172.21.154.225:3306 \
+--username root \
+--password cloudera
+
+2) List tables
+sqoop list-tables \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera
+
+3) Import
+
+a) Basic Import Single Table
+
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--table orders \
+--username root \
+--password cloudera
+
+b) Import table with specific columns
+
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--columns "order_id,order_date"
+
+c) Controlling the import parallelism 
+
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+-m 8
+
+OR
+
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--num-mappers 8
+
+---Comments----Check the input folder there will be 8 part of files
+
+d) Specify File format
+sqoop supports 4 formats
+1. text (default)--as-textfile
+2. sequence files--as-sequencefile
+3. parquet files--as-parquetfile \
+4. avrodata files--as-avrodatafile
+
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--as-textfile
