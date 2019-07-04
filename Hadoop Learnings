@@ -1,0 +1,20 @@
+Hadoop Learnings
+
+1) Read file from HDFS from command line
+hdfs dfs -cat {filename}
+
+2) hadoop fs {args} vs hadoop dfs {args} vs hdfs dfs {args}
+	a.FS relates to a generic file system which can point to any file systems like local, HDFS etc. So this can be used when you are dealing with different file systems such as Local FS, (S)FTP, S3, and others
+
+	b.dfs is very specific to HDFS. would work for operation relates to HDFS. This has been deprecated and we should use hdfs dfs instead.
+
+	c.same as 2nd i.e would work for all the operations related to HDFS and is the recommended command instead of hadoop dfs
+	**So even if you use hadoop dfs , it will look locate hdfs and delegate that command to hdfs dfs
+
+3) Delete hdfs directory
+hdfs dfs -rm -R /user/cloudera/orders
+
+4) List hdfs directory
+hdfs dfs -ls /user	
+
+
