@@ -169,3 +169,29 @@ sqoop import \
 --table orders \
 --boundary-query 'select 1,10 from orders' \
 -m 1
+
+****Import Arguments******
+Argument	Description
+--append								*****DONE********
+--as-avrodatafile						*****DONE********
+--as-sequencefile						*****DONE********
+--as-textfile							*****DONE********
+--as-parquetfile						*****DONE********
+--boundary-query <statement>			*****DONE********
+--columns <col,col,col…>				*****DONE********
+--delete-target-dir						*****DONE********
+--direct								Use direct connector if exists for the database
+--fetch-size <n>						Number of entries to read from database at once.
+--inline-lob-limit <n>					Set the maximum size for an inline LOB
+-m,--num-mappers <n>					*****DONE********
+-e,--query <statement>					Import the results of statement.
+--split-by <column-name>				*****DONE********
+--autoreset-to-one-mapper			    *****DONE********
+--table <table-name>					*****DONE********
+--target-dir <dir>						*****DONE********
+--warehouse-dir <dir>					*****DONE********
+--where <where clause>					WHERE clause to use during import
+-z,--compress							*****DONE********
+--compression-codec <c>					*****DONE********
+--null-string <null-string>				The string to be written for a null value for string columns
+--null-non-string <null-string>			The string to be written for a null value for non-string columns
