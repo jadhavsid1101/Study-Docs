@@ -1,4 +1,4 @@
-Sqoop Learnings
+Sqoop Learningss
 ************************************Connectivity************************************
 1) List Databases(To check connectivity)
 sqoop list-databases \
@@ -184,14 +184,33 @@ Argument	Description
 --fetch-size <n>						Number of entries to read from database at once.
 --inline-lob-limit <n>					Set the maximum size for an inline LOB
 -m,--num-mappers <n>					*****DONE********
--e,--query <statement>					Import the results of statement.
+-e,--query <statement>					*****DONE--Not executed********Import the results of statement.
 --split-by <column-name>				*****DONE********
 --autoreset-to-one-mapper			    *****DONE********
 --table <table-name>					*****DONE********
 --target-dir <dir>						*****DONE********
 --warehouse-dir <dir>					*****DONE********
---where <where clause>					WHERE clause to use during import
+--where <where clause>					*****DONE--Not executed********WHERE clause to use during import
 -z,--compress							*****DONE********
 --compression-codec <c>					*****DONE********
---null-string <null-string>				The string to be written for a null value for string columns
---null-non-string <null-string>			The string to be written for a null value for non-string columns
+--null-string <null-string>				*****DONE--Not executed********
+--null-non-string <null-string>			*****DONE--Not executed********
+
+****Common Arguments****
+--connect <jdbc-uri>					*****DONE********	Specify JDBC connect string
+--connection-manager <class-name>		Specify connection manager class to use
+--driver <class-name>					Manually specify JDBC driver class to use
+--hadoop-mapred-home <dir>				Override $HADOOP_MAPRED_HOME
+--help									*****DONE********	Print usage instructions
+--password-file							Set path for a file containing the authentication password
+-P										Read password from console
+--password <password>					*****DONE********	Set authentication password
+--username <username>					*****DONE********	Set authentication username
+--verbose								Print more information while working
+--connection-param-file <filename>		Optional properties file that provides connection parameters
+--relaxed-isolation						Set connection transaction isolation to read uncommitted for the mappers.
+
+****Incremental import arguments****
+--check-column (col)	Specifies the column to be examined when determining which rows to import.
+--incremental (mode)	Specifies how Sqoop determines which rows are new. Legal values for mode include append and lastmodified.
+--last-value (value)	Specifies the maximum value of the check column from the previous import.
