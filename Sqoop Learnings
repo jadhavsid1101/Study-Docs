@@ -64,3 +64,42 @@ sqoop import \
 --password cloudera \
 --table orders \
 --as-textfile
+
+e) Managing Target Directory
+
+By default sqoop imports the data in /user/{username}/{tableName} format.
+We can change this using 
+1) --target-dir <dir> : Will import data directly inside specified directory
+2) --warehouse-dir <dir> : Will create sub directory inside specified directory and name of sub directory will be that of table name
+
+a)--target-dir
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--target-dir /user/cloudera/sqoop-import/orders
+
+b)--warehouse-dir
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--warehouse-dir /user/cloudera/sqoop-import/
+
+f) Delete Target directory to overwrite data
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--delete-target-dir
+
+g) Append data to existing file
+sqoop import \
+--connect jdbc:mysql://172.21.154.225:3306/retail_db \
+--username root \
+--password cloudera \
+--table orders \
+--append
