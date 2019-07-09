@@ -1,5 +1,5 @@
 Sqoop Learnings
-
+************************************Connectivity************************************
 1) List Databases(To check connectivity)
 sqoop list-databases \
 --connect jdbc:mysql://172.21.154.225:3306 \
@@ -11,7 +11,7 @@ sqoop list-tables \
 --connect jdbc:mysql://172.21.154.225:3306/retail_db \
 --username root \
 --password cloudera
-
+************************************Table Level Import************************************
 3) Import
 
 a) Basic Import Single Table
