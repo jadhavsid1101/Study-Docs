@@ -214,3 +214,73 @@ Argument	Description
 --check-column (col)	Specifies the column to be examined when determining which rows to import.
 --incremental (mode)	Specifies how Sqoop determines which rows are new. Legal values for mode include append and lastmodified.
 --last-value (value)	Specifies the maximum value of the check column from the previous import.
+
+****Changing separators****((((((Try later-------------IMP))))))
+--enclosed-by <char>	Sets a required field enclosing character
+--escaped-by <char>	Sets the escape character
+--fields-terminated-by <char>	Sets the field separator character
+--lines-terminated-by <char>	Sets the end-of-line character
+--mysql-delimiters	Uses MySQL’s default delimiter set: fields: , lines: \n escaped-by: \ optionally-enclosed-by: '
+--optionally-enclosed-by <char>	Sets a field enclosing character
+
+
+************************************Hive Import************************************
+1) Basics commands
+a) Connect to hive
+hive
+
+b) Create database
+create database db_name;
+
+c) Switch database
+use db_name;
+
+d) Create table
+create table t(i int);
+
+e) Insert into table
+insert into table t values (1);
+
+f) Check 
+select * from t;
+
+g) Drop
+drop table t;
+
+2) Sqoop Import hive
+
+sqoop import \
+--connect jdbc:mysql://192.168.56.101:3306/retail_db \
+--username root \
+--password cloudera \
+--table order_items \
+--hive-import \
+--hive-database sid_sqoop_import \
+--hive-table order_items \
+--num-mappers 2
+
+***By default mode is append***
+
+3) Overwrite existing table
+sqoop import \
+--connect jdbc:mysql://192.168.56.101:3306/retail_db \
+--username root \
+--password cloudera \
+--table order_items \
+--hive-import \
+--hive-database sid_sqoop_import \
+--hive-table order_items \
+--num-mappers 2 \
+--hive-overwrite
+
+4) Fail if target table exists
+sqoop import \
+--connect jdbc:mysql://192.168.56.101:3306/retail_db \
+--username root \
+--password cloudera \
+--table order_items \
+--hive-import \
+--hive-database sid_sqoop_import \
+--hive-table order_items \
+--num-mappers 2 \
+--create-hive-table
