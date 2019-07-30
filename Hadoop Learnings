@@ -23,4 +23,7 @@ hadoop fs -du [-s] [-h] [-v] [-x] URI
 	a.The -s option will result in an aggregate summary of file lengths being displayed, rather than the individual files. Without the -s option, calculation is done by going 1-level deep from the given path.
 	b.The -h option will format file sizes in a human-readable fashion (e.g 64.0m instead of 67108864)
 	c.The -v option will display the names of columns as a header line.
-	d.The -x option will exclude snapshots from the result calculation. Without the -x option (default), the result is always calculated from all INodes, including all snapshots under the given path.
+	d.The -x option will exclude snapshots from the result calculation. Without the -x option (default), the result is always calculated from all INodes, including all snapshots under the given path.		
+	
+6) Copy File from local file system to HDFS
+hdfs dfs -put -f {local-path}  {/dest-hdfs-path}
