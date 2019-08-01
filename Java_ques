@@ -1,0 +1,271 @@
+Q) Describe all Access specifiers in JAVA
+	1)Default – No keyword required
+		*When no access modifier is specified for a class , method or data member – It is said to be having the default access modifier by default.
+		*Default members in Class A are visible to the other classes which are inside the package and invisible to the classes which are outside the package.
+	2)Private
+		*Private members are visible in the same class only and not for the other classes in the same package as well as classes in the outside packages.
+		*The methods or data members declared as private are accessible only within the class in which they are declared.
+		*Any other class of same package will not be able to access these members.
+		*private means “only visible within the enclosing class”.
+	3)Protected
+		*The methods or data members declared as protected are accessible within same package or sub classes in different package.
+		if a class extends the protected class
+		*protected means “only visible within the enclosing class and any subclasses”
+		*protected = default+inheritance
+	4)Public
+		*Public members are visible in the same package as well as the outside package that is for other packages.
+
+	private=only same class
+	default=private + only same package
+	protected = default + inheritance
+	public =all
+
+Q) Set in Java
+	Set is an interface which extends Collection.
+	It is an unordered collection of objects in which duplicate values cannot be stored.
+	Basically, Set is implemented by HashSet, LinkedHashSet or TreeSet (sorted representation).
+	Set has various methods to add, remove clear, size, etc to enhance the usage of this interface	
+
+Q) Hashset in java
+	Implements Set Interface.
+	Underlying data structure for HashSet is hashtable.
+	As it implements the Set Interface, duplicate values are not allowed.
+	Objects that you insert in HashSet are not guaranteed to be inserted in same order. 
+	Objects are inserted based on their hash code.
+	NULL elements are allowed in HashSet.
+	HashSet also implements Searlizable and Cloneable interfaces.	
+
+Q) Treest in java
+	Java TreeSet class contains unique elements only like HashSet.
+	Java TreeSet class access and retrieval times are quiet fast.
+	Java TreeSet class doesn't allow null element.
+	Java TreeSet class is non synchronized.
+	Java TreeSet class maintains ascending order.	
+
+
+Q) Hashset vs Treeset
+
+HashSet													TreeSet
+Inserted elements are in random order					Maintains the elements in the sorted order
+Can able to store null objects							Couldn’t store null objects
+Performance is fast										Performance is slow
+
+
+Q) Abstract class vs Interface
+
+	Abstract Class:
+
+		***Contains Abstract methods as well as Non-Abstract methods.
+		Abstract classes have a default constructor and it is called whenever the concrete subclass is instantiated.
+		The class which extends the Abstract class shouldn’t require implementing all the methods, only Abstract methods need to be implemented in the concrete sub-class.
+		Abstract Class contains instance variables.
+	
+	Interface:
+
+		**Abstract method alone should be declared.
+		Doesn’t have any constructor and couldn’t be instantiated.
+		Classes which implement the interface should provide the implementation for all the methods.
+		The interface contains only constants.
+
+
+Q)  What is mean by Collections in Java?
+
+	Collection is a framework that is designed to store the objects and manipulate the design to store the objects.
+	Collections are used to perform the following operations:
+		Searching
+		Sorting
+		Manipulation
+		Insertion
+		Deletion
+	A group of objects is known as collections. 
+	All the classes and interfaces for collecting are available in Java utile package.		
+
+
+Q) What are all the Classes and Interfaces that are available in the collections?
+
+Ans: Given below are the Classes and Interfaces that are available in Collections:
+
+Interfaces:
+
+Collection
+List
+Set
+Map
+Sorted Set
+Sorted Map
+Queue
+
+Classes:
+
+Lists:
+Array List
+Vector
+Linked List
+
+Sets:
+
+Hash set
+Linked Hash Set
+Tree Set
+Maps:
+
+Hash Map
+Hash Table
+Tree Map
+Linked Hashed Map
+Queue:
+
+Priority Queue	
+
+
+Q) Explain about Set and their types in a collection?
+
+	Set cares about uniqueness. 
+	It doesn’t allow duplications. 
+	Here “equals ( )” method is used to determine whether two objects are identical or not.
+
+	Hash Set:
+
+		Unordered and unsorted.
+		Uses the hash code of the object to insert the values.
+		Use this when the requirement is “no duplicates and don’t care about the order”.
+		Doesn’t follow any insertion order. Duplicates are not allowed.
+
+	Linked Hash set:
+
+		An ordered version of the hash set is known as Linked Hash Set.
+		Maintains a doubly-Linked list of all the elements.
+		Use this when the iteration order is required.
+		Maintains the insertion order in which they have been added to the Set. 
+		Duplicates are not allowed.
+
+	Tree Sets:
+
+		It is one of the two sorted collections.
+		Uses “Read-Black” tree structure and guarantees that the elements will be in an ascending order.
+		We can construct a tree set with the constructor by using comparable (or) comparator.
+		TreeSet sorts the elements in an ascending order. 
+		And duplicates are not allowed.
+		Set cares about uniqueness. 
+		It doesn’t allow duplications. 
+		Here “equals ( )” method is used to determine whether two objects are identical or not.
+
+	Hash Set:
+
+		Unordered and unsorted.
+		Uses the hash code of the object to insert the values.
+		Use this when the requirement is “no duplicates and don’t care about the order”.
+		Doesn’t follow any insertion order. Duplicates are not allowed.
+
+	Linked Hash set:
+
+		An ordered version of the hash set is known as Linked Hash Set.
+		Maintains a doubly-Linked list of all the elements.
+		Use this when the iteration order is required.
+		Maintains the insertion order in which they have been added to the Set. 
+		Duplicates are not allowed.
+
+
+Q) Linked Hash Map:
+
+Maintains insertion order.
+Slower than Hash map.
+Can expect a faster iteration.		
+
+Q) Explain about Exception Propagation.
+
+	Exception is first thrown from the method which is at the top of the stack. If it doesn’t catch, then it pops up the method and moves to the previous method and so on until they are got.
+
+	This is called Exception propagation.
+
+Q) What is the final keyword in Java?
+
+Final variable:
+
+Once a variable is declared as final, then the value of the variable could not be changed. It is like a constant.
+
+Final method:
+
+A final keyword in a method that couldn’t be overridden. If a method is marked as a final, then it can’t be overridden by the subclass.
+
+Final class:
+
+If a class is declared as final, then the class couldn’t be subclassed. No class can extend the final class.	
+
+
+Q) How do you make a thread in Java?
+
+There are two ways available in order to make a thread.
+
+#1) Extend Thread class:
+
+Extending a Thread class and override the run method. The thread is available in java.lang.thread.
+
+#2) Implement Runnable interface:
+
+Another way is implementing the runnable interface. For that we should provide the implementation for run () method which is defined in the interface.
+
+
+Q ) What does yield method of the Thread class do?
+
+	A yield () method moves the currently running thread to a  runnable state and allows the other threads for execution. So that equal priority threads have a chance to run. It is a static method. It doesn’t release any lock.
+	Yield () method moves the thread back to the Runnable state only, and not the thread to sleep (), wait () (or) block.
+
+Q) Difference between notify() method and notifyAll() method in Java.
+
+	notify()	
+		This method is used to send a signal to wake up a single thread in the waiting pool.	
+	notifyAll()
+		This method sends the signal to wake up all the threads in a waiting spool.	
+
+Q) Explain thread life cycle in Java.
+
+	Thread has the following states:
+		New
+		Runnable
+		Running
+		Non-runnable (Blocked)
+		Terminated		
+
+		New:
+In New state, Thread instance has been created but start () method is not yet invoked. Now the thread is not considered alive.
+
+Runnable:
+The Thread is in runnable state after invocation of the start () method, but before the run () method is invoked. But a thread can also return to the runnable state from waiting/sleeping. In this state the thread is considered alive.
+
+Running:
+The thread is in running state after it calls the run () method. Now the thread begins the execution.
+
+Non-Runnable(Blocked):
+The thread is alive but it is not eligible to run. It is not in runnable state but also, it will return to runnable state after some time.
+
+Example: wait, sleep, block.
+
+Terminated :
+Once the run method is completed then it is terminated. Now the thread is not alive.
+
+
+Q) What is Synchronization?
+
+	Synchronization makes only one thread to access a block of code at a time. If multiple thread accesses the block of code, then there is a chance for inaccurate results at the end. To avoid this issue, we can provide synchronization for the sensitive block of codes.
+	The synchronized keyword means that a thread needs a key in order to access the synchronized code.
+	Locks are per objects. Every Java object has a lock. A lock has only one key. A thread can access a synchronized method only if the thread can get the key to the objects lock.
+	For this, we use “Synchronized” keyword.
+
+
+Q) What is the disadvantage of Synchronization?
+
+Ans: Synchronization is not recommended to implement all the methods. Because if one thread accesses the synchronized code then the next thread should have to wait. So it makes slow performance on the other end.
+
+Q) What is meant by Serialization?
+
+Ans: Converting a file into a byte stream is known as Serialization. The objects in the file is converted to the bytes for security purposes. For this, we need to implement java.io.Serializable interface. It has no method to define.
+
+Variables that are marked as transient will not be a part of the serialization. So we can skip the serialization for the variables in the file by using a transient keyword.
+
+Q) What is the purpose of a transient variable?
+
+Ans: Transient variables are not part of the serialization process. During deserialization, the transient variables values are set to default value. It is not used with static variables.	
+
+Q) What is the purpose of a Volatile Variable?
+	Volatile variable values are always read from the main memory and not from thread's cache memory. This is used mainly during synchronization. It is applicable only for variables.
